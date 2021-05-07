@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="5">
+	<test thread-count="5" name="Test">
+		<classes>
+			<class
+				name="com.crm.vtigerTests.Leads.TL_27_ConvertLeadToOpertunitiesBySelectingOpertunityAndContactTheChekboxsAndFeelAllTheMandatoryFields" />
+			<class
+				name="com.crm.vtigerTests.Leads.TL_30_ConvertLeadToOpertunitiesBySelectingAllTheChekboxsAndGiveValidDataToExpectedCloseDate" />
+			<class
+				name="com.crm.vtigerTests.Leads.TL_28_ConvertLeadToOpertunitiesBySelectingOpertunityAndContactTheChekboxsAndFeelAllTheMandatoryFields" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="Test1">
+		<classes>
+			<class
+				name="com.crm.vtigerTests.Leads.TL_29_ConvertLeadToOpertunitiesBySelectingAllTheChekboxsAndChangeTheOpertunityName" />
+			<class
+				name="com.crm.vtigerTests.Leads.TL_26_ConvertLeadToOpertunitiesBySelectingOrganisationAndContactChekboxsAndFillAllTheMandatoryFields" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
