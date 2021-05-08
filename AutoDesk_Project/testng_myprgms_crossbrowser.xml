@@ -5,7 +5,9 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class
-				name="com.crm.vtigerTests.Leads.TL_27_ConvertLeadToOpertunitiesBySelectingOpertunityAndContactTheChekboxsAndFeelAllTheMandatoryFields" />
+				name="com.crm.vtigerTests.Leads.TL_30_ConvertLeadBySelectingOpportunity" />
+			<class
+				name="com.crm.vtigerTests.Leads.TL_27_ConvertLeadAndCheckError" />
 		</classes>
 	</test> <!-- Test -->
 
@@ -13,7 +15,9 @@
 		<parameter name="browser" value="firefox" />
 		<classes>
 			<class
-				name="com.crm.vtigerTests.Leads.TL_28_ConvertLeadToOpertunitiesBySelectingOpertunityAndContactTheChekboxsAndFeelAllTheMandatoryFields" />
+				name="com.crm.vtigerTests.Leads.TL_29_ConvertLeadToOrganization" />
+			<class
+				name="com.crm.vtigerTests.Leads.TL_28_ConvertLeadAndCheckError" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

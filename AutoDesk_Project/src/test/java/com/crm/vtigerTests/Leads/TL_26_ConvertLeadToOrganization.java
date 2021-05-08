@@ -10,18 +10,18 @@ import com.crm.vtiger.pages.CreateNewLead;
 import com.crm.vtiger.pages.HomePage;
 import com.crm.vtiger.pages.LeadInformationPage;
 import com.crm.vtiger.pages.LeadsPage;
+import com.crm.vtiger.pages.OrganizationInfoPage;
 
 @Listeners(com.crm.vtiger.genericUtils.ListImg.class)
-public class TL_27_ConvertLeadToOpertunitiesBySelectingOpertunityAndContactTheChekboxsAndFeelAllTheMandatoryFields
-		extends BaseClass {
+public class TL_26_ConvertLeadToOrganization extends BaseClass {
 
-	@Test(groups = "regressionTest")
+	@Test(groups = "smokeTest")
 	public void convertLead() throws InterruptedException, Throwable {
 
-		// Step 3: click on leads and select a lead
-		String expectedLead = eUtil.getExcelData("TC001", 3, 2) + "_" + jutil.getRandomData();
-		String companyName = eUtil.getExcelData("TC001", 3, 3) + "_" + jutil.getRandomData();
+		String expectedLead = eUtil.getExcelData("TC001", 1, 2) + "_" + jutil.getRandomData();
+		String companyName = eUtil.getExcelData("TC001", 1, 3) + "_" + jutil.getRandomData();
 
+		// Step 3: click on leads and select a lead
 		HomePage homepage = new HomePage(driver, wUtil);
 		LeadsPage leads = (LeadsPage) homepage.clickOnMenuLink("leads");
 
@@ -39,14 +39,18 @@ public class TL_27_ConvertLeadToOpertunitiesBySelectingOpertunityAndContactTheCh
 
 		// step4: click on convert lead link
 		ConvertLeadLink convertLead = newLead.clickOnConvertLeadLink();
-		
+
 		// verification of convert lead page info
 		String actualConvertLeadInfoText = convertLead.getConvertLeadPageInfo();
-		Assert.assertTrue(actualConvertLeadInfoText.contains(expectedLead),"convert lead page is displaying");
-		
-		convertLead.getOpportunityCheckBox().click();
+		Assert.assertTrue(actualConvertLeadInfoText.contains(expectedLead), "convert lead page is displaying");
+
 		convertLead.getSaveButton().click();
-		wUtil.acceptAlert(driver);
+		
+
+		// verification for organization name
+		OrganizationInfoPage orgInfo = new OrganizationInfoPage(driver, wUtil);
+		String actualOrganizationInfo = orgInfo.getOrganizationText();
+		Assert.assertTrue(actualOrganizationInfo.contains(companyName), "organization page is displaying");
 
 	}
 

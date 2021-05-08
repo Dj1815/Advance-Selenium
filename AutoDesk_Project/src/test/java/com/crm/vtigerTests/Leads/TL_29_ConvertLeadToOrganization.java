@@ -13,15 +13,14 @@ import com.crm.vtiger.pages.LeadsPage;
 import com.crm.vtiger.pages.OrganizationInfoPage;
 
 @Listeners(com.crm.vtiger.genericUtils.ListImg.class)
-public class TL_30_ConvertLeadToOpertunitiesBySelectingAllTheChekboxsAndGiveValidDataToExpectedCloseDate
-		extends BaseClass {
+public class TL_29_ConvertLeadToOrganization extends BaseClass {
 
-	@Test(groups = "smokeTest")
+	@Test(groups = "regressionTest")
 	public void convertLead() throws Throwable {
 
 		// Step 3: click on leads and select a lead
-		String expectedLead = eUtil.getExcelData("TC001", 9, 2) + "_" + jutil.getRandomData();
-		String companyName = eUtil.getExcelData("TC001", 9, 3) + "_" + jutil.getRandomData();
+		String expectedLead = eUtil.getExcelData("TC001", 7, 2) + "_" + jutil.getRandomData();
+		String companyName = eUtil.getExcelData("TC001", 7, 3) + "_" + jutil.getRandomData();
 
 		HomePage homepage = new HomePage(driver, wUtil);
 		LeadsPage leads = (LeadsPage) homepage.clickOnMenuLink("leads");
@@ -45,12 +44,13 @@ public class TL_30_ConvertLeadToOpertunitiesBySelectingAllTheChekboxsAndGiveVali
 		String actualConvertLeadInfoText = convertLead.getConvertLeadPageInfo();
 		Assert.assertTrue(actualConvertLeadInfoText.contains(expectedLead), "convert lead page is displaying");
 
-		convertLead.selectOpportunityCheckBox("2018-01-31", 3);
-
+		convertLead.selectOpportunityCheckBox("2015-08-29", 3);
+		
 		// verification for organization name
 		OrganizationInfoPage orgInfo = new OrganizationInfoPage(driver, wUtil);
 		String actualOrganizationInfo = orgInfo.getOrganizationText();
 		Assert.assertTrue(actualOrganizationInfo.contains(companyName), "organization page is displaying");
+
 
 	}
 
