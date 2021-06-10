@@ -11,5 +11,5 @@
 			<class name="com.xml.practice.CreateOrganizationTest" />
 			<class name="com.xml.practice.CreateContact" />
 		</classes>
-	</test> <!-- Test -->
-</suite> <!-- Suite -->
+	</test>    <!-- Test -->
+</suite>   <!-- Suite yes -->
